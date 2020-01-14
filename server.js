@@ -1,6 +1,7 @@
 require('dotenv').config();
 var express = require('express');
 const cors = require('cors');
+const errorHandler = require('./modules/core/middlewares/errors');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -24,6 +25,8 @@ app.get('/', function (req, res) {
   });
 app.use('/api/v1/products', require('./modules/products/products.controller'));
 
+// error handler
+app.use(errorHandler);
 
 // start server
 app.set('port', process.env.PORT || 3000);

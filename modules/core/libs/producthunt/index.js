@@ -74,7 +74,6 @@ class ProductHuntClient {
    * @returns {Promise<T>}
    */
   async doGetRequest(path, data, headers) {
-    console.log('params', this.prepareParams(data));
     return this.httpClient.get(
       path,
       this.prepareParams(data),
