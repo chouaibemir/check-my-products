@@ -1,38 +1,13 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
-const Product = new Schema({
-    id: {
-        type: Number,
-      },
-    name: {
-        type: String
-    },
-    tagline: {
-        type: String
-    },
-    day: {
-         type: Date,
-    },
-    votes_count: {
-        type: Number
-    }
-});
-
-Product.plugin(mongoosePaginate);
-Product.set('toJSON', { virtuals: true });
-
-/**
- * toJSON implementation
- */
-Product.options.toJSON = {
-    transform(doc, ret) {
-      const r = ret;
-      r.id = r._id;
-      delete r._id;
-      delete r.__v;
-      return r;
-    },
-  };
+class Product {
+  constructor(id, name, tagline, day, votes_count) {
+    this.id = id;
+    this.name = name;
+    this.tagline = tagline;
+    this.day = day;
+    this.votes_count = votes_count;
+  }
+}
 
 module.exports = Product;
+

@@ -1,5 +1,5 @@
 const product_hunt = require('../core/services/producthunt.service');
-
+const product = require('../products/products.model');
 
 /*
  * Get all products by params

@@ -15,7 +15,7 @@ class HttpClient {
         });
     }
   
-    /**
+  /**
    * Make GET request to Product Hunt API
    *
    * @param {String} path

@@ -11,9 +11,8 @@ const router = express.Router();
  */
 
 function getAllProducts(req, res, next) {
-    console.log(req.body);
     productsService.getAllProducts(req.body)
-      .then(products => (products ? res.json({ data: products }) : res.sendStatus(204)))
+      .then(products => (products ? res.send( products.body ) : res.sendStatus(204)))
       .catch(err => next(err));
   };
 

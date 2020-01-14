@@ -39,8 +39,8 @@ class ProductHuntClient {
   async getProducts(sort_by, order, per_page) {
     const headers = {
       Authorization: `Bearer ${ACCESS_TOKEN}`,
-      "Content-Type": "application/json",
       'Accept': 'application/json',
+      'content-type': 'application/json',
       'host': HOST_URL,
     };
 
@@ -49,8 +49,7 @@ class ProductHuntClient {
         order,
         per_page
     };
-
-    return this.doGetRequest(`/posts/all`, data, headers);
+    return this.doGetRequest(`/posts/all`, data, headers, {});
   }
 
 
@@ -75,9 +74,7 @@ class ProductHuntClient {
    * @returns {Promise<T>}
    */
   async doGetRequest(path, data, headers) {
-    console.log('data', data);
-    console.log('headers', headers);
-
+    console.log('params', this.prepareParams(data));
     return this.httpClient.get(
       path,
       this.prepareParams(data),
