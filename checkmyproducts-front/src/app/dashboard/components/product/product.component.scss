@@ -1,0 +1,36 @@
+.list-content {
+    display: flex;
+	flex-wrap: wrap;
+	flex: 1;
+	font-size: 14px;
+	align-content: center;
+	border-bottom: 1px solid #e8e8e8;
+    padding: 20px 104px 20px 20px;
+
+	.name-container {
+		margin-right: 4px;
+		margin-bottom: 4px;
+	}
+
+    .img-container {
+       
+    }
+    
+    /* resize images */
+    .img-container img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .infos-container {
+        display: flex;
+    }
+}
+
+.mat-divider {
+    display: block;
+    margin: 0;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #F3F3F3;
+ }

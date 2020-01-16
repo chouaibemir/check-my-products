@@ -11,7 +11,7 @@ const router = express.Router();
  */
 
 function getAllProducts(req, res, next) {
-    productsService.getAllProducts(req.body)
+    productsService.getAllProducts(req.query)
       .then(products => (products ? res.send( products ) : res.sendStatus(204)))
       .catch(err => next(err));
   };
