@@ -8,15 +8,19 @@ import { ProductComponent } from './components/product/product.component';
 import { MatList, MatListItem } from '@angular/material/list';
 import { MatRippleModule } from '@angular/material';
 import { MatDividerModule } from '@angular/material/divider'
- 
+import { FormsModule } from '@angular/forms';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
-  declarations: [DashboardComponent, HeaderComponent, ProductsListComponent, ProductComponent, MatList, MatListItem],
+  declarations: [DashboardComponent, HeaderComponent, ProductsListComponent, ProductComponent, MatList, MatListItem, PieChartComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     MatRippleModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule,
+    ChartsModule,
   ]
 })
 export class DashboardModule { }

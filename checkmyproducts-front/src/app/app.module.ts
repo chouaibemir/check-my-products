@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ApiInterceptor } from './shared/interceptors/api-interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiErrorsInterceptor } from './shared/interceptors/api-errors.interceptor';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ApiErrorsInterceptor } from './shared/interceptors/api-errors.intercept
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },

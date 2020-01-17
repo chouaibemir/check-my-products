@@ -31,12 +31,10 @@ class ProductHuntClient {
    /**
    * Get Product Hunt products
    *
-   * @param {String} sort_by
-   * @param {String} order
-   * @param {Number} per_page
+   * @param {String} day
    * @returns {Promise<Object>}
    */
-  async getProducts(sort_by, order, per_page) {
+  async getProducts(day) {
     const headers = {
       Authorization: `Bearer ${ACCESS_TOKEN}`,
       'Accept': 'application/json',
@@ -45,11 +43,9 @@ class ProductHuntClient {
     };
 
     const data = {
-        sort_by,
-        order,
-        per_page
+        day
     };
-    return this.doGetRequest(`/posts/all`, data, headers, {});
+    return this.doGetRequest(`/posts`, data, headers, {});
   }
 
 

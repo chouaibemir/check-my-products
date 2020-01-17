@@ -3,18 +3,9 @@
             <img [src]="product?.thumbnail">
         </div>
         <div class="infos-container">
-            <div class="name-container">
-                <label>{{product?.name}}</label>
-            </div>
-            <div class="tagline-container">
-                <label>{{product?.tagline}}</label>
-            </div>
-            <div class="votes-container">
-                <label>{{product?.votes_count}}</label>
-            </div>
-            <div class="day-container">
-                <label>{{product?.day}}</label>
-            </div>
+                <h3 class="name-container">{{product?.name}}</h3>
+                <p class="tagline-container">{{product?.tagline}}</p>
+                <label class="topic-container">{{product?.topics[0].name}}</label>
         </div>
 
     </div>

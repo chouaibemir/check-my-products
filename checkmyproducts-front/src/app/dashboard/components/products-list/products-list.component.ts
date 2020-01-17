@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './services/products.service';
 import { Product } from '../product/models/product';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-products-list',
@@ -11,10 +12,21 @@ import { Product } from '../product/models/product';
 export class ProductsListComponent implements OnInit {
 
   productList: Product[];
+  date_picker: string;
+  pipe = new DatePipe('en-US');
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-    this.productsService.getProducts('day', 'desc', '10').subscribe(
+    this.getProducts();
+  }
+
+  dateChange(date) {
+    this.date_picker = date;
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.productsService.getProducts(this.date_picker ? this.date_picker : this.pipe.transform(Date.now(), 'yyyy-MM-dd')).subscribe(
       (res)=> {
         this.productList = res;
       }

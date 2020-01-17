@@ -4,24 +4,26 @@ import { Observable } from 'rxjs';
 import { Product } from '../../product/models/product';
 import { Api } from '../api';
 import { map } from 'rxjs/operators';
+import { TopicValuesService } from 'src/app/shared/services/topic-values.service';
 
 
 @Injectable()
 export class ProductsService {
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient,
+                private topicValues: TopicValuesService
+                ) {
     }
 
-    public getProducts(sort_by: string, order: string, per_page: string): Observable<any> {
+    public getProducts(day: string): Observable<any> {
         return this.http.get(Api.products,  {
             params: {
-                sort_by: sort_by ? sort_by : 'day',
-                order: order ? order : 'desc',
-                per_page: per_page ? per_page : '5'
+                day
               }
           })
           .pipe(
               map((response:any) => {
                 const productsList = response as Product[];
+                this.topicValues.setNonDuplicateArray(productsList);
                 return productsList;
               })
           )

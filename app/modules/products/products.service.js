@@ -3,13 +3,11 @@ const Product = require('../products/products.model');
 
 /*
  * Get all products by params
- *@param {String} sort_by
- * @param {String} order
- * @param {Number} per_page
+ * @param {String} date
  * @returns {Promise<Object>}
  */
 
-module.exports.getAllProducts = async ({ sort_by, order, per_page  }) => product_hunt.getProducts(sort_by, order, per_page)
+module.exports.getAllProducts = async ({ day  }) => product_hunt.getProducts(day)
 .then((products) => {
     const productsObject = JSON.parse(products.body);
     const productsToReturn = new Array();
@@ -22,7 +20,7 @@ module.exports.getAllProducts = async ({ sort_by, order, per_page  }) => product
           created_at: post.created_at,
           votes_count: post.votes_count,
           thumbnail: post.thumbnail.image_url,
-          topis: post.topics
+          topics: post.topics
         });
         productsToReturn.push(product);
       });

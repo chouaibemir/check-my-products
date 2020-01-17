@@ -1,3 +1,5 @@
+import { Topic } from './topic';
+
 export class Product {
     id: Number;
     name: string;
@@ -5,5 +7,5 @@ export class Product {
     day: string;
     created_at: string;
     votes_count: Number;
-  }
-  
+    topics: Topic[];
+}
